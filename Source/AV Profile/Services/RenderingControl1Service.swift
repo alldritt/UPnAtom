@@ -183,7 +183,7 @@ import Foundation
     
     public func getVolume(instanceID: String, channel: String = "Master", success: @escaping (_ volume: Int) -> Void, failure:@escaping (_ error: NSError) -> Void) {
         getStateVariable(instanceID: instanceID, stateVariableName: "Volume", additionalArguments: ["Channel",channel], success: { (stateVariableValue: String?) -> Void in
-            success(Int(String(describing: stateVariableValue)) ?? 0)
+            success(Int(stateVariableValue ?? "0") ?? 0)
         }, failure: failure)
     }
     
